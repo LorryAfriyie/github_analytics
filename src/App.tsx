@@ -1,7 +1,15 @@
-import "./App.css";
+import { Card } from "./components/card";
+import "./styles/App.css";
+import "./styles/style.scss";
+
+// Components
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Card />
+    </>
+  );
 }
 
 export default App;
