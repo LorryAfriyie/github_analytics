@@ -3,5 +3,25 @@
 
   .card-body {
     padding: 1rem;
+
+    ul {
+      list-style: none;
+
+      li {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        
+        p {
+          vertical-align: middle;
+        }
+
+        img {
+          height: auto;
+          width: 100px;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 }
