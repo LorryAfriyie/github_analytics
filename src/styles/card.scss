@@ -1,5 +1,10 @@
 .card {
   background: hsl(0, 0%, 20%);
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  border-radius: 10px;
+  padding: 0.75rem;
 
   .card-body {
     padding: 1rem;
@@ -11,7 +16,7 @@
         display: flex;
         gap: 2rem;
         margin-bottom: 2rem;
-        
+
         p {
           vertical-align: middle;
         }

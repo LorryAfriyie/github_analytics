@@ -31,6 +31,22 @@ export const Followers = () => {
   return (
     <section className="followers">
       <h2>Followers</h2>
+      <div className="card">
+        <div className="card-header"></div>
+        <div className="card-body">
+          <ul>
+            {followers.map((x, index) => {
+              return (
+                <li key={index}>
+                  <img src={x.avatar_url} alt="" />
+                  <p>{x.login}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="card-footer"></div>
+      </div>
     </section>
   );
 };

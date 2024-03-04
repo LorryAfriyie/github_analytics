@@ -1,4 +1,8 @@
-import { Card } from "./components/card";
+// Components and Views
+import { Followers } from "./followers";
+import { Following } from "./following";
+
+// Styles
 import "./styles/App.css";
 import "./styles/style.scss";
 
@@ -7,7 +11,7 @@ import "./styles/style.scss";
 function App() {
   return (
     <>
-      <Card />
+      <Followers />
     </>
   );
 }

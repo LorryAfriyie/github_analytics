@@ -31,6 +31,22 @@ export const Following = () => {
   return (
     <section className="following">
       <h2>Following</h2>
+      <div className="card">
+        <div className="card-header"></div>
+        <div className="card-body">
+          <ul>
+            {following.map((x, index) => {
+              return (
+                <li key={index}>
+                  <img src={x.avatar_url} alt="" />
+                  <p>{x.login}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="card-footer"></div>
+      </div>
     </section>
   );
 };
