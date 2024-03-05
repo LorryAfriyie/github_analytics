@@ -14,12 +14,9 @@
 
       li {
         display: flex;
+        align-items: center;
         gap: 2rem;
         margin-bottom: 2rem;
-
-        p {
-          vertical-align: middle;
-        }
 
         img {
           height: auto;

@@ -39,7 +39,7 @@ export const Followers = () => {
               return (
                 <li key={index}>
                   <img src={x.avatar_url} alt="" />
-                  <p>{x.login}</p>
+                  <span>{x.login}</span>
                 </li>
               );
             })}
