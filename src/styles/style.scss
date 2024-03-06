@@ -1,5 +1,7 @@
 @import "card";
 
+@import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -9,4 +11,5 @@
 body {
   background-color: hsl(0, 0%, 8%);
   color: hsl(0, 0%, 100%);
+  font-family: "Anta", sans-serif;
 }
