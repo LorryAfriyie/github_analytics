@@ -1,13 +1,18 @@
 .card {
   background: hsl(0, 0%, 20%);
-  width: -moz-fit-content;
-  width: fit-content;
   height: auto;
   border-radius: 10px;
   padding: 0.75rem;
 
+  .card-header {
+    border-bottom: 1px solid hsl(0, 0%, 8%);
+    text-align: center;
+  }
+
   .card-body {
     padding: 1rem;
+    display: grid;
+    place-items: center;
 
     ul {
       list-style: none;
@@ -20,7 +25,7 @@
 
         img {
           height: auto;
-          width: 100px;
+          width: 50px;
           border-radius: 50%;
         }
       }

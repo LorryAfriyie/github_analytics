@@ -5,14 +5,12 @@ export const Pagination = ({ followersPerPage, totalFollowers, paginate }) => {
     pageNumbers.push(i);
   }
   return (
-    <nav>
+    <nav className="pagination">
       <ul>
         {pageNumbers.map((number) => {
           return (
             <li key={number}>
-              <a href="!#" onClick={() => paginate(number)}>
-                {number}
-              </a>
+              <button onClick={() => paginate(number)}>{number}</button>
             </li>
           );
         })}

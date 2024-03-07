@@ -46,13 +46,19 @@ export const Followers = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Show loading if the data is not reading to be displayed
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
 
   return (
     <section className="followers">
-      <h2>Followers</h2>
       <div className="card">
-        <div className="card-header"></div>
+        <div className="card-header">
+          <h2>Followers</h2>
+        </div>
         <div className="card-body">
           <ul>
             {currentFollowers.map((x, index) => {
