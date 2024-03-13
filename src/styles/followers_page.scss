@@ -1,10 +1,9 @@
 .followers {
-  height: 100vh;
-
   .card {
     background: hsl(0, 0%, 20%);
     border-radius: 10px;
     padding: 0.75rem;
+    min-width: 400px;
 
     .card-header {
       border-bottom: 1px solid hsl(0, 0%, 8%);
@@ -18,7 +17,7 @@
 
       ul {
         list-style: none;
-
+        padding-left: 0;
         li {
           display: flex;
           align-items: center;

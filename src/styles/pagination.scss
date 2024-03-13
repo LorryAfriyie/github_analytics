@@ -3,8 +3,9 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 1rem;
-
+    padding-left: 0;
+    gap: 0.5rem;
+    
     li {
       button {
         padding: 1.25rem;

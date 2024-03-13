@@ -53,6 +53,10 @@ export const Followers = () => {
       </div>
     );
 
+  if (!loading && currentFollowers.length === 0) {
+    return <h1>Could not load GitHub followers</h1>;
+  }
+
   return (
     <section className="followers">
       <div className="card">
