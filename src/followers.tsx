@@ -64,6 +64,7 @@ export const Followers = () => {
           <h2>Followers</h2>
         </div>
         <div className="card-body">
+          <p>Number of followers: {followers.length}</p>
           <ul>
             {currentFollowers.map((x, index) => {
               return (

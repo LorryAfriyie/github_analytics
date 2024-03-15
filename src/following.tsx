@@ -1,41 +1,63 @@
 import { Octokit } from "octokit";
 import { useState, useEffect } from "react";
+import { Pagination } from "./components/pagination";
 
 export const Following = () => {
   const [following, getFollowing] = useState([]);
-
-  const GitHubFollowing = () => {
-    const octokit = new Octokit({
-      auth: import.meta.env.VITE_TOKEN,
-    });
-
-    octokit
-      .request("GET /user/following", {
-        headers: {
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
-      })
-      .then((data) => {
-        getFollowing(data.data);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [followingPerPage] = useState(5);
 
   useEffect(() => {
+    const GitHubFollowing = () => {
+      setLoading(true);
+
+      const octokit = new Octokit({
+        auth: import.meta.env.VITE_TOKEN,
+      });
+
+      octokit
+        .request("GET /user/following", {
+          headers: {
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+        })
+        .then((data) => {
+          getFollowing(data.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log(err.message);
+        });
+    };
+
     GitHubFollowing();
   }, []);
+
+  const indexOfLastFollowing = currentPage * followingPerPage;
+  const indexOfFirstFollowing = indexOfLastFollowing - followingPerPage;
+  const currentFollowing = following.slice(
+    indexOfFirstFollowing,
+    indexOfLastFollowing,
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  if (!loading && following.length === 0) {
+    return <h1>Could not load users you are following</h1>;
+  }
 
   return (
     <section className="following">
       <h2>Following</h2>
       <div className="card">
-        <div className="card-header"></div>
+        <div className="card-header">
+          <h2>Following</h2>
+        </div>
         <div className="card-body">
           <ul>
-            {following.map((x, index) => {
+            {currentFollowing.map((x, index) => {
               return (
                 <li key={index}>
                   <img src={x.avatar_url} alt="" />
@@ -45,7 +67,13 @@ export const Following = () => {
             })}
           </ul>
         </div>
-        <div className="card-footer"></div>
+        <div className="card-footer">
+          <Pagination
+            followersPerPage={followingPerPage}
+            totalFollowers={following.length}
+            paginate={paginate}
+          />
+        </div>
       </div>
     </section>
   );
