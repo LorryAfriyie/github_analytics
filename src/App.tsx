@@ -9,10 +9,10 @@ import "./styles/style.scss";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Followers />
-      {/* <Following/> */}
-    </>
+      {/* <Following /> */}
+    </div>
   );
 }
 

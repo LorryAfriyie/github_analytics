@@ -44,18 +44,25 @@ export const Following = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  if (loading)
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+
   if (!loading && following.length === 0) {
     return <h1>Could not load users you are following</h1>;
   }
 
   return (
     <section className="following">
-      <h2>Following</h2>
       <div className="card">
         <div className="card-header">
           <h2>Following</h2>
         </div>
         <div className="card-body">
+          <p>Number of people following: {following.length}</p>
           <ul>
             {currentFollowing.map((x, index) => {
               return (
