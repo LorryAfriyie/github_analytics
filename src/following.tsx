@@ -47,12 +47,12 @@ export const Following = () => {
   if (loading)
     return (
       <div className="loading">
-        <h1>Loading...</h1>
+        <p>Loading following...</p>
       </div>
     );
 
   if (!loading && following.length === 0) {
-    return <h1>Could not load users you are following</h1>;
+    return <p>Could not load users you are following</p>;
   }
 
   return (
@@ -61,19 +61,23 @@ export const Following = () => {
         <div className="card-header">
           <h2>Following</h2>
         </div>
+
         <div className="card-body">
           <p>Number of people following: {following.length}</p>
+
           <ul>
             {currentFollowing.map((x, index) => {
               return (
                 <li key={index}>
-                  <img src={x.avatar_url} alt="" />
-                  <p>{x.login}</p>
+                  <img src={x.avatar_url} alt={x.avatar_url} />
+
+                  <span>{x.login}</span>
                 </li>
               );
             })}
           </ul>
         </div>
+
         <div className="card-footer">
           <Pagination
             followersPerPage={followingPerPage}
